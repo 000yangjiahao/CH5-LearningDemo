@@ -516,6 +516,82 @@
           "value": true
         }
       ]
+    },
+    {
+      "type": "boolean",
+      "event": "ScreenOn",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isScreenOn",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "isScreenOff",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "ScreenOff",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isScreenOn",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "isScreenOff",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "CurtainUp",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isCurtainUp",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "isCurtainDown",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "CurtainDown",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isCurtainUp",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "isCurtainDown",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
     }
   ],
   "onStart": [

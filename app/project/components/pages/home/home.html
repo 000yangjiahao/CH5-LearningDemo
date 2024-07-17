@@ -16,13 +16,13 @@
     </div>
     <ch5-tab-button numberOfItems="2" indexId="idx" buttonReceiveStateSelected="btn-select-{{idx}}"
         buttonSendEventOnClick="btn-click-{{idx}}"
-        style="float: right; width: 400px; margin-right: 50px; display: block;">
+        style="float: right; width: 400px; margin-right: 30px; display: block;">
         <ch5-tab-button-individual-button labelInnerHtml="首页">
         </ch5-tab-button-individual-button>
         <ch5-tab-button-individual-button labelInnerHtml="控制">
         </ch5-tab-button-individual-button>
     </ch5-tab-button></br></br>
-    <div style="margin: 0px 50px 20px 20px;">
+    <div style="margin: 0px 30px 20px 20px;">
         <ch5-triggerview>
             <ch5-triggerview-child receiveStateShow="show_first_view_signal">
                 <div class="viewcontent">
@@ -197,7 +197,7 @@
                                 </div>
                                 <div
                                     style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0;">
-                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                    <ch5-button sendEventOnClick="ScreenOn" receiveStateSelected="isScreenOn">
                                         <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
                                             <ch5-button-label>
                                                 <template>
@@ -206,7 +206,7 @@
                                             </ch5-button-label>
                                         </ch5-button-mode>
                                     </ch5-button>
-                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                    <ch5-button sendEventOnClick="ScreenOff" receiveStateSelected="isScreenOff">
                                         <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
                                             <ch5-button-label>
                                                 <template>
@@ -228,10 +228,10 @@
                                 </div>
                                 <div
                                     style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0;">
-                                    <ch5-button sendEventOnClick="" receiveStateSelected=""
+                                    <ch5-button sendEventOnClick="CurtainUp" receiveStateSelected="isCurtainUp"
                                         iconurl="./app/project/assets/img/up.png" customclass="curtainButton">
                                     </ch5-button>
-                                    <ch5-button sendEventOnClick="" receiveStateSelected=""
+                                    <ch5-button sendEventOnClick="CurtainDown" receiveStateSelected="isCurtainDown"
                                         iconurl="./app/project/assets/img/down.png" style="height: 54px;"
                                         customclass="curtainButton">
                                     </ch5-button>
