@@ -1,0 +1,77 @@
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/project/components/pages/home/home.scss ***!
+  \**************************************************************************************************************************************/
+.viewcontent {
+  width: 100%;
+  height: 800px;
+  background: #999;
+}
+.viewcontent ch5-button {
+  width: 250px;
+  margin: 60px 25px 25px 25px;
+}
+.viewcontent .ch5-button {
+  height: 125px;
+}
+.viewcontent div {
+  text-align: center;
+}
+
+.light-theme {
+  --theme-colors--default-background-color: #fafafa;
+  --theme-colors--default-selected-font-color: black;
+  --theme-colors--default-font-color: black;
+  --theme-colors--default-border-color: black;
+  --theme-ch5-slider--connect-background-color: black;
+  --theme-ch5-slider--target-background-color: white;
+  --theme-ch5-slider--height: 30px;
+}
+
+span.cb-lbl.ch5-button--label {
+  font-size: 20px;
+}
+
+ch5-button .ch5-button .cb-btn {
+  width: 100%;
+  height: 100%;
+}
+ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
+  margin-bottom: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+#line {
+  display: inline-block;
+  width: 25%;
+  border-top: 2px solid black;
+  vertical-align: middle;
+}
+
+.curtainButton {
+  height: 54px;
+}
+
+.curtain {
+  z-index: 1;
+}
+.curtain .board {
+  height: 6px;
+  width: 250px;
+  background-color: white;
+}
+.curtain .cloth {
+  width: 250px;
+  height: 100px;
+  background-color: #fafafa;
+  border-top: 5px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  background-color: #fafafa;
+  box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.AudioButton {
+  margin-top: 5px;
+}

@@ -402,6 +402,120 @@
           "logic": "link"
         }
       ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector1On",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector1On",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "isProjector1Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector1Off",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector1On",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "isProjector1Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector2On",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector2On",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "isProjector2Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector2Off",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector2On",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "isProjector2Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector3On",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector3On",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "isProjector3Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "Projector3Off",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "isProjector3On",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "isProjector3Off",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
     }
   ],
   "onStart": [

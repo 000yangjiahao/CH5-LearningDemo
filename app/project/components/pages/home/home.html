@@ -293,8 +293,8 @@
 
                                     </ch5-button>
 
-                                </div >
-                                <div style="background-color: #FFFFCC;"> 
+                                </div>
+                                <div style="background-color: #FFFFCC;">
                                     <div><ch5-jointotext-numeric
                                             receiveStateValue="slider3.value"></ch5-jointotext-numeric> db</div>
                                     <ch5-slider sendEventOnChange="slider3.change" receiveStateValue="slider3.value"
@@ -392,17 +392,277 @@
                         </div>
                         <div
                             style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(1, 1fr); gap: 10px; margin-top: 30px;">
-                            <div
-                                style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(1, 1fr); gap: 10px; margin-top: 30px;">
-                                123
+                            <div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(7, 1fr); gap: 0px;margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>讲台桌插</span></br><span>HDMI</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>左辅助</span></br><span>Ass.L</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>右辅助</span></br><span>Ass.R</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>无线投屏</span></br><span>Wireless</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>黑屏</span></br><span>V.Blank</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>送返显屏</span></br><span>To LCD</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>自动跟踪</span></br><span>Mic Trace</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 20px; margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="Projector1On" receiveStateSelected="isProjector1On">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                            customclass="AudioButton">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>待机开</span></br><span>Projector On</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="Projector1Off" receiveStateSelected="isProjector1Off">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>带机关</span></br><span>Projector Off</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
+
                             </div>
-                            <div
-                                style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(1, 1fr); gap: 10px; margin-top: 30px;">
-                                123
+                            <div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(7, 1fr); gap: 0px;margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>讲台桌插</span></br><span>HDMI</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>左辅助</span></br><span>Ass.L</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>右辅助</span></br><span>Ass.R</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>无线投屏</span></br><span>Wireless</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>黑屏</span></br><span>V.Blank</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>送返显屏</span></br><span>To LCD</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>自动跟踪</span></br><span>Mic Trace</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 20px; margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="Projector2On" receiveStateSelected="isProjector2On">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                            customclass="AudioButton">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>待机开</span></br><span>Projector On</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="Projector2Off" receiveStateSelected="isProjector2Off">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>带机关</span></br><span>Projector Off</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
                             </div>
-                            <div
-                                style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(1, 1fr); gap: 10px; margin-top: 30px;">
-                                123
+                            <div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(7, 1fr); gap: 0px;margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>讲台桌插</span></br><span>HDMI</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>左辅助</span></br><span>Ass.L</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>右辅助</span></br><span>Ass.R</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>无线投屏</span></br><span>Wireless</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>黑屏</span></br><span>V.Blank</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>送返显屏</span></br><span>To LCD</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="" receiveStateSelected="">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>自动跟踪</span></br><span>Mic Trace</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 20px; margin-left: 20px;">
+                                    <ch5-button sendEventOnClick="Projector3On" receiveStateSelected="isProjector3On">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                            customclass="AudioButton">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>待机开</span></br><span>Projector On</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                    <ch5-button sendEventOnClick="Projector3Off" receiveStateSelected="isProjector3Off">
+                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                            <ch5-button-label>
+                                                <template>
+                                                    <span>带机关</span></br><span>Projector Off</span>
+                                                </template>
+                                            </ch5-button-label>
+                                        </ch5-button-mode>
+                                    </ch5-button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
