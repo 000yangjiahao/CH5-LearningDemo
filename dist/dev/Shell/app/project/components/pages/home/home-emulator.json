@@ -1,0 +1,419 @@
+{
+  "cues": [
+    {
+      "type": "b",
+      "event": "btn-click-0",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "show_first_view_signal",
+          "value": true,
+          "type": "b",
+          "logic": "set"
+        },
+        {
+          "state": "show_second_view_signal",
+          "value": false,
+          "type": "b",
+          "logic": "set"
+        },
+        {
+          "state": "btn-select-0",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "state": "btn-select-1",
+          "type": "boolean",
+          "value": false,
+          "logic": "set"
+        }
+      ]
+    },
+    {
+      "type": "b",
+      "event": "btn-click-1",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "show_first_view_signal",
+          "value": false,
+          "type": "b",
+          "logic": "set"
+        },
+        {
+          "state": "show_second_view_signal",
+          "value": true,
+          "type": "b",
+          "logic": "set"
+        },
+        {
+          "state": "btn-select-0",
+          "type": "boolean",
+          "value": false,
+          "logic": "set"
+        },
+        {
+          "state": "btn-select-1",
+          "type": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "btn-click-0",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "btn-select-0",
+          "type": "boolean",
+          "logic": "toggle"
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "btn-click-1",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "btn-select-1",
+          "type": "boolean",
+          "logic": "toggle"
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "start_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_start_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "is_end_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "end_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_start_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_end_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "daily_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_daily_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "is_teachA_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachB_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_online_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_custom_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "teachA_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_daily_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachA_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "is_teachB_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_online_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_custom_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "teachB_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_daily_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachA_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachB_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "is_online_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_custom_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "online_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_daily_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachA_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachB_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_online_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        },
+        {
+          "state": "is_custom_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        }
+      ]
+    },
+    {
+      "type": "boolean",
+      "event": "custom_select",
+      "trigger": true,
+      "actions": [
+        {
+          "state": "is_daily_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachA_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_teachB_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_online_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": false
+        },
+        {
+          "state": "is_custom_selected",
+          "type": "boolean",
+          "logic": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider0.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider0.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider1.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider1.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider2.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider2.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider3.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider3.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider4.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider4.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider5.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider5.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider6.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider6.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "event": "slider7.change",
+      "trigger": "&change",
+      "actions": [
+        {
+          "state": "slider7.value",
+          "type": "number",
+          "logic": "link"
+        }
+      ]
+    }
+  ],
+  "onStart": [
+    {
+      "state": "btn-select-0",
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "state": "is_start_selected",
+      "type": "boolean",
+      "value": true
+    }
+  ]
+}
