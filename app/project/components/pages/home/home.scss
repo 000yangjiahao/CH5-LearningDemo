@@ -9,42 +9,55 @@
 
 #home-page {
     // BEGIN::CHANGEAREA - your page level styles go here 
-
+    background-color: #CBCBC0;
+    height: 100vh;
     // END::CHANGEAREA
 }
 
+.tabButtom {
+    span.cb-lbl.ch5-button--label {
+        font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
+    }
+
+    height: 7vh;
+    width: 100%;
+}
+
+
 .viewcontent {
     width: 100%;
-    height: 800px;
-    background: #999;
+    height: 83vh;
 
     ch5-button {
-        width: 250px;
-        margin: 60px 25px 25px 25px;
+        width: 20%;
+        margin: 4% 2% 2% 2%;
     }
 
     .ch5-button {
-        height: 125px;
+        height: 15vh;
     }
 
     div {
         text-align: center;
     }
+
+    span.cb-lbl.ch5-button--label {
+        font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
+    }
 }
+
 
 .light-theme {
     --theme-colors--default-background-color: #fafafa;
-    --theme-colors--default-selected-font-color: black;
     --theme-colors--default-font-color: black;
     --theme-colors--default-border-color: black;
+    --theme-colors--default-selected-border-color: black;
     --theme-ch5-slider--connect-background-color: black;
     --theme-ch5-slider--target-background-color: white;
-    --theme-ch5-slider--height: 30px;
+    --theme-ch5-slider--height: 3vh;
+    --theme-ch5-slider--width-regular: 19vw;
 }
 
-span.cb-lbl.ch5-button--label {
-    font-size: 20px;
-}
 
 ch5-button {
     .ch5-button {
@@ -54,10 +67,66 @@ ch5-button {
         }
 
         i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
-            margin-bottom: 10px;
-            height: 30px;
-            width: 30px;
+            margin-bottom: 1.3vh;
+            height: 4vh;
+            width: 12%;
         }
+    }
+}
+
+.control {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    padding: 1vw;
+}
+
+.font-prompt {
+    margin-top: 1vh;
+    font-size: clamp(0.7rem, 0.25rem + 1.05vw, 1.5rem);
+    margin-right: 10px;
+
+    .device-button {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0;
+
+        span.cb-lbl.ch5-button--label {
+            font-size: clamp(0.7rem, 0.3rem + 1vw, 2rem)
+        }
+    }
+
+    .video-button {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 20px;
+        margin-top: 2vh;
+
+        span.cb-lbl.ch5-button--label {
+            font-size: clamp(0.7rem, 0.3rem + 1vw, 2rem)
+        }
+    }
+}
+
+#content-index-body .ch5-viewchild {
+    border: 1px solid black;
+}
+
+.curtain-icon {
+    i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
+        height: 4vh;
+        width: 20%;
+    }
+}
+
+.audio-icon {
+    i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
+        height: 3.5vh;
+        width: 80%;
     }
 }
 
@@ -68,22 +137,23 @@ ch5-button {
     vertical-align: middle;
 }
 
-.curtainButton {
-    height: 54px;
+.Audio-Text {
+    font-size: clamp(0.7rem, 0.2rem + 1vw, 2rem);
 }
 
 .curtain {
     z-index: 1;
+    width: 40%;
 
     .board {
-        height: 6px;
-        width: 250px;
+        height: 0.1vh;
+        width: 100%;
         background-color: white;
     }
 
     .cloth {
-        width: 250px;
-        height: 100px;
+        width: 100%;
+        height: 10vh;
         background-color: #fafafa;
         border-top: 5px solid black;
         border-right: 3px solid black;
@@ -94,6 +164,18 @@ ch5-button {
     }
 }
 
-.AudioButton{
+.AudioButton {
     margin-top: 5px;
+}
+
+.video-buttom {
+    height: 6.2vh
+}
+
+.ch5-button--default {
+    background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%);
+}
+
+.ch5-button--default.ch5-button--selected {
+    background: linear-gradient(#4E98F6 0%, #2468E4 100%);
 }

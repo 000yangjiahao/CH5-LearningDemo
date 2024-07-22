@@ -20,9 +20,11 @@ const homeModule = (() => {
      * Initialize Method
      */
     function onInit() {
-       serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/pages/home/home-emulator.json");
-       // Uncomment the below line and comment the above to load the emulator all the time.
-       // serviceModule.addEmulatorScenario("./app/project/components/pages/home/home-emulator.json");       
+        serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/pages/home/home-emulator.json");
+        // Uncomment the below line and comment the above to load the emulator all the time.
+        // serviceModule.addEmulatorScenario("./app/project/components/pages/home/home-emulator.json");       
+
+        
     }
 
     /**
@@ -36,7 +38,7 @@ const homeModule = (() => {
                 loadedSubId = '';
             });
         }
-    }); 
+    });
 
     /**
      * All public method and properties are exported here
