@@ -1,6 +1,11 @@
 /*!**************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/project/components/pages/home/home.scss ***!
   \**************************************************************************************************************************************/
+#home-page {
+  background-color: #CBCBC0;
+  height: 100vh;
+}
+
 .tabButtom {
   height: 7vh;
   width: 100%;
@@ -12,7 +17,6 @@
 .viewcontent {
   width: 100%;
   height: 83vh;
-  background: #999;
 }
 .viewcontent ch5-button {
   width: 20%;
@@ -36,7 +40,7 @@
   --theme-ch5-slider--connect-background-color: black;
   --theme-ch5-slider--target-background-color: white;
   --theme-ch5-slider--height: 3vh;
-  --theme-ch5-slider--width-regular: 20vw;
+  --theme-ch5-slider--width-regular: 19vw;
 }
 
 ch5-button .ch5-button .cb-btn {
@@ -52,16 +56,15 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
 .control {
   width: 100%;
   height: 85vh;
-  background: #999;
   display: flex;
   text-align: center;
   overflow: hidden;
+  padding: 1vw;
 }
 
 .font-prompt {
   margin-top: 1vh;
   font-size: clamp(0.7rem, 0.25rem + 1.05vw, 1.5rem);
-  background-color: yellow;
   margin-right: 10px;
 }
 .font-prompt .device-button {
@@ -71,7 +74,7 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
   gap: 0;
 }
 .font-prompt .device-button span.cb-lbl.ch5-button--label {
-  font-size: clamp(0.7rem, 0.43rem + 1vw, 2rem);
+  font-size: clamp(0.7rem, 0.3rem + 1vw, 2rem);
 }
 .font-prompt .video-button {
   display: grid;
@@ -81,7 +84,11 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
   margin-top: 2vh;
 }
 .font-prompt .video-button span.cb-lbl.ch5-button--label {
-  font-size: clamp(0.7rem, 0.3rem + 1vw, 2rem);
+  font-size: clamp(0.7rem, 0.25rem + 1vw, 2rem);
+}
+
+#content-index-body .ch5-viewchild {
+  border: 1px solid black;
 }
 
 .curtain-icon i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
@@ -128,6 +135,10 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
 
 .AudioButton {
   margin-top: 5px;
+}
+
+.video-button-height {
+  height: 6.2vh;
 }
 
 .ch5-button--default {

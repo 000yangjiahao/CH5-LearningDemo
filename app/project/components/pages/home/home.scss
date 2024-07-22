@@ -107,7 +107,7 @@ ch5-button {
         margin-top: 2vh;
 
         span.cb-lbl.ch5-button--label {
-            font-size: clamp(0.7rem, 0.3rem + 1vw, 2rem)
+            font-size: clamp(0.7rem, 0.25rem + 1vw, 2rem)
         }
     }
 }
@@ -168,7 +168,7 @@ ch5-button {
     margin-top: 5px;
 }
 
-.video-buttom {
+.video-button-height {
     height: 6.2vh
 }
 
