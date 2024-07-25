@@ -138,8 +138,7 @@
         {
           "state":"trigger_1",
           "type":"b",
-          "logic":"set",
-          "value":true
+          "logic":"toggle"
         }
       ]
     },
@@ -181,8 +180,7 @@
         {
           "state":"trigger_1",
           "type":"b",
-          "logic":"set",
-          "value":true
+          "logic":"toggle"
         }
       ]
     },
@@ -224,8 +222,7 @@
         {
           "state":"trigger_1",
           "type":"b",
-          "logic":"set",
-          "value":true
+          "logic":"toggle"
         }
       ]
     },
@@ -267,8 +264,7 @@
         {
           "state":"trigger_1",
           "type":"b",
-          "logic":"set",
-          "value":true
+          "logic":"toggle"
         }
       ]
     },
@@ -310,8 +306,7 @@
         {
           "state":"trigger_1",
           "type":"b",
-          "logic":"set",
-          "value":true
+          "logic":"toggle"
         }
       ]
     },

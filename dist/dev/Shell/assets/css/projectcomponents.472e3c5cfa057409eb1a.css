@@ -32,6 +32,12 @@
   font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
 }
 
+.dialog {
+  width: 40%;
+  height: 25vh;
+  text-align: center;
+}
+
 .light-theme {
   --theme-colors--default-background-color: #fafafa;
   --theme-colors--default-font-color: black;
@@ -41,6 +47,7 @@
   --theme-ch5-slider--target-background-color: white;
   --theme-ch5-slider--height: 3vh;
   --theme-ch5-slider--width-regular: 19vw;
+  --theme-ch5-button--regular-font-size: font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
 }
 
 ch5-button .ch5-button .cb-btn {
@@ -84,7 +91,7 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
   margin-top: 2vh;
 }
 .font-prompt .video-button span.cb-lbl.ch5-button--label {
-  font-size: clamp(0.7rem, 0.35rem + 1vw, 3rem);
+  font-size: clamp(0.7rem, 0.25rem + 1vw, 2rem);
 }
 
 #content-index-body .ch5-viewchild {

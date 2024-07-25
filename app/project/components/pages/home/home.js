@@ -14,8 +14,14 @@
 const homeModule = (() => {
     'use strict';
 
+    let homeButtons = [
+        { buttonName: 'dailyButton', selectedName: 'is_daily_selected', button: null },
+        { buttonName: 'teachAButton', selectedName: 'is_teachA_selected', button: null },
+        { buttonName: 'teachBButton', selectedName: 'is_teachB_selected', button: null },
+        { buttonName: 'onlineButton', selectedName: 'is_online_selected', button: null },
+        { buttonName: 'customButton', selectedName: 'is_custom_selected', button: null }
+    ];
     // BEGIN::CHANGEAREA - your javascript for page module code goes here         
-
     /**
      * Initialize Method
      */
@@ -23,16 +29,18 @@ const homeModule = (() => {
         serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/pages/home/home-emulator.json");
         // Uncomment the below line and comment the above to load the emulator all the time.
         // serviceModule.addEmulatorScenario("./app/project/components/pages/home/home-emulator.json");       
-
-        
     }
-
     /**
      * private method for page class initialization
      */
     let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:home-import-page', (value) => {
         if (value['loaded']) {
             onInit();
+
+            homeButtons.forEach(btn => {
+                btn.button = document.getElementById(btn.buttonName);
+            });
+
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:home-import-page', loadedSubId);
                 loadedSubId = '';
@@ -40,10 +48,21 @@ const homeModule = (() => {
         }
     });
 
+    homeButtons.map(btn => {
+        CrComLib.subscribeState('b', btn.selectedName, value => {
+            if (value) {
+                btn.button.setMode(1);
+            } else {
+                btn.button.setMode(0);
+            }
+        });
+    });
+
     /**
      * All public method and properties are exported here
      */
     return {
+        handleOk
     };
 
     // END::CHANGEAREA

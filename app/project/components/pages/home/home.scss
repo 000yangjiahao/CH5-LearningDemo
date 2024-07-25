@@ -12,6 +12,7 @@
     background-color: #CBCBC0;
     height: 100vh;
     // END::CHANGEAREA
+    overflow: hidden;
 }
 
 .tabButtom {
@@ -46,6 +47,11 @@
     }
 }
 
+.dialog {
+    width: 40%;
+    height: 25vh;
+    text-align: center;
+}
 
 .light-theme {
     --theme-colors--default-background-color: #fafafa;
@@ -56,6 +62,7 @@
     --theme-ch5-slider--target-background-color: white;
     --theme-ch5-slider--height: 3vh;
     --theme-ch5-slider--width-regular: 19vw;
+    --theme-ch5-button--regular-font-size: font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
 }
 
 
@@ -125,8 +132,15 @@ ch5-button {
 
 .audio-icon {
     i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
-        height: 3.5vh;
-        width: 80%;
+        height: 5vh;
+        width: 100%;
+    }
+
+    .setting{
+        i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
+            height: 3.5vh;
+            width: 80%;
+        }
     }
 }
 
