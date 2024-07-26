@@ -4,6 +4,7 @@
 #home-page {
   background-color: #CBCBC0;
   height: 100vh;
+  overflow: hidden;
 }
 
 .tabButtom {
@@ -39,7 +40,6 @@
 }
 
 .light-theme {
-  --theme-colors--default-background-color: #fafafa;
   --theme-colors--default-font-color: black;
   --theme-colors--default-border-color: black;
   --theme-colors--default-selected-border-color: black;
@@ -104,6 +104,10 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
 }
 
 .audio-icon i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
+  height: 5vh;
+  width: 100%;
+}
+.audio-icon .setting i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
   height: 3.5vh;
   width: 80%;
 }
@@ -153,5 +157,33 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
 }
 
 .ch5-button--default.ch5-button--selected {
+  background: linear-gradient(#4E98F6 0%, #2468E4 100%);
+}
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/project/components/pages/unlock/unlock.scss ***!
+  \******************************************************************************************************************************************/
+#unlock-page {
+  background-color: #CBCBC0;
+  height: 100vh;
+}
+
+.lock ch5-button .ch5-button .cb-btn {
+  height: 9vh;
+}
+.lock span.cb-lbl.ch5-button--label {
+  font-size: clamp(0.7rem, 0.489rem + 3.05vw, 5vw);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lock ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
+  margin-top: 1vh;
+  height: 10vh;
+  width: 40%;
+}
+
+.ch5-button--default.ch5-button--pressed {
   background: linear-gradient(#4E98F6 0%, #2468E4 100%);
 }

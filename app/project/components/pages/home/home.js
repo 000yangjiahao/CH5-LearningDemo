@@ -21,6 +21,8 @@ const homeModule = (() => {
         { buttonName: 'onlineButton', selectedName: 'is_online_selected', button: null },
         { buttonName: 'customButton', selectedName: 'is_custom_selected', button: null }
     ];
+
+    let logo
     // BEGIN::CHANGEAREA - your javascript for page module code goes here         
     /**
      * Initialize Method
@@ -37,9 +39,7 @@ const homeModule = (() => {
         if (value['loaded']) {
             onInit();
 
-            homeButtons.forEach(btn => {
-                btn.button = document.getElementById(btn.buttonName);
-            });
+            initElement()
 
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:home-import-page', loadedSubId);
@@ -48,21 +48,40 @@ const homeModule = (() => {
         }
     });
 
-    homeButtons.map(btn => {
-        CrComLib.subscribeState('b', btn.selectedName, value => {
-            if (value) {
-                btn.button.setMode(1);
-            } else {
-                btn.button.setMode(0);
-            }
+    function initElement() {
+        initButton()
+        initLogo()
+    }
+
+    function initButton() {
+        homeButtons.forEach(btn => {
+            btn.button = document.getElementById(btn.buttonName);
         });
-    });
+
+        homeButtons.map(btn => {
+            CrComLib.subscribeState('b', btn.selectedName, value => {
+                if (value) {
+                    btn.button.setMode(1);
+                } else {
+                    btn.button.setMode(0);
+                }
+            });
+        });
+    }
+    function initLogo() {
+        logo = document.getElementById('logo')
+        logo.addEventListener('click',()=>{
+            templatePageModule.navigateTriggerViewByPageName('unlock')
+        })
+    }
+
+
+
 
     /**
      * All public method and properties are exported here
      */
     return {
-        handleOk
     };
 
     // END::CHANGEAREA

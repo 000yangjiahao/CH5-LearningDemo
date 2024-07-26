@@ -125,6 +125,22 @@
           "iconUrl": "",
           "iconPosition": ""
         }
+      },
+      {
+        "pageName": "unlock",
+        "fullPath": "./app/project/components/pages/unlock/",
+        "fileName": "unlock.html",
+        "preloadPage": true,
+        "cachePage": false,
+        "standAloneView": false,
+        "navigation": {
+          "sequence": 2,
+          "label": "unlock",
+          "isI18nLabel": false,
+          "iconClass": "",
+          "iconUrl": "",
+          "iconPosition": ""
+        }
       }
     ],
     "widgets": []
