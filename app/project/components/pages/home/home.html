@@ -25,11 +25,46 @@
         </ch5-tab-button>
     </div>
     <div style="margin: 0px 2% 1% 2%; display: block;">
-        <ch5-background url="./app/project/assets/img/backimg.png" customstyle="opacity:0.1;"></ch5-background>
+        <ch5-background url="./app/project/assets/img/backimg.png" customstyle="opacity:0.1;"
+            backgroundcolor="black"></ch5-background>
 
         <ch5-triggerview customstyle="margin-top:0px;">
             <ch5-triggerview-child receiveStateShow="show_first_view_signal">
                 <div class="viewcontent">
+                    <div class="confirm" style="font-size: clamp(0.7rem, 0.6rem + 1.5vw, 4rem);"
+                        data-ch5-show="start_confirm_show" data-ch5-noshow-type="remove">
+                        <div style="margin-top: 3%;">是否开始课程?</div>
+                        <div>Starting the class?</div>
+                        <div style="display: flex; flex-direction: row;justify-content: center;margin-top: 5%;">
+                            <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                                <span>取消</span><br>
+                                <span>Cancel</span>
+                            </div>
+                            <ch5-slider value="50" min="0" max="100" customstyle="margin-top:1vh" id="startSlider">
+                            </ch5-slider>
+                            <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                                <span>开始课程</span><br>
+                                <span>Start the class</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="confirm" style="font-size: clamp(0.7rem, 0.6rem + 1.5vw, 4rem);"
+                        data-ch5-show="end_confirm_show" data-ch5-noshow-type="remove">
+                        <div style="margin-top: 3%;">是否结束课程?</div>
+                        <div>Starting the class?</div>
+                        <div style="display: flex; flex-direction: row;justify-content: center;margin-top: 5%;">
+                            <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                                <span>取消</span><br>
+                                <span>Cancel</span>
+                            </div>
+                            <ch5-slider value="50" min="0" max="100" customstyle="margin-top:1vh" id="endSlider">
+                            </ch5-slider>
+                            <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                                <span>结束课程</span><br>
+                                <span>End the class</span>
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         <ch5-button iconUrl="./app/project/assets/img/start.png" iconposition="top"
                             sendEventOnClick="start_select" receiveStateSelected="is_start_selected">
@@ -513,7 +548,7 @@
                             </div>
                         </div>
                         <div class="video-button">
-                            <div style="margin-left: 20px;">
+                            <div style="margin-left: 20px; ">
                                 <div
                                     style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(7, 1fr); gap: 0px;">
                                     <ch5-button sendEventOnClick="" receiveStateSelected=""
@@ -587,30 +622,6 @@
                                         </ch5-button-mode>
                                     </ch5-button>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 2vh;">
-                                    <ch5-button sendEventOnClick="Projector1On" receiveStateSelected="isProjector1On"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机开</span></br><span>Projector On</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
-                                    <ch5-button sendEventOnClick="Projector1Off" receiveStateSelected="isProjector1Off"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机关</span></br><span>Projector Off</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
-                                </div>
-
                             </div>
                             <div style="margin-left: 10px; margin-right: 10px;">
                                 <div
@@ -681,29 +692,6 @@
                                             <ch5-button-label>
                                                 <template>
                                                     <span>自动跟踪</span></br><span>Mic Trace</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
-                                </div>
-                                <div
-                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 2vh;">
-                                    <ch5-button sendEventOnClick="Projector2On" receiveStateSelected="isProjector2On"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机开</span></br><span>Projector On</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
-                                    <ch5-button sendEventOnClick="Projector2Off" receiveStateSelected="isProjector2Off"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机关</span></br><span>Projector Off</span>
                                                 </template>
                                             </ch5-button-label>
                                         </ch5-button-mode>
@@ -784,39 +772,145 @@
                                         </ch5-button-mode>
                                     </ch5-button>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px;margin-top: 2vh;">
-                                    <ch5-button sendEventOnClick="Projector3On" receiveStateSelected="isProjector3On"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机开</span></br><span>Projector On</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
-                                    <ch5-button sendEventOnClick="Projector3Off" receiveStateSelected="isProjector3Off"
-                                        customclass="video-button-height">
-                                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
-                                            <ch5-button-label>
-                                                <template>
-                                                    <span>待机关</span></br><span>Projector Off</span>
-                                                </template>
-                                            </ch5-button-label>
-                                        </ch5-button-mode>
-                                    </ch5-button>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(1, 1fr); gap: 20px;margin-top: 2vh;"
+                            class="projectorButton">
+                            <div class="startClassConfirm" style="font-size: clamp(0.7rem, 0.6rem + 1.5vw, 4rem);"
+                                data-ch5-show="is_end_selected" data-ch5-noshow-type="remove">
+                                <div style="position: absolute; right:1vw; top: 0;width: 5%;height: 5%;" id="fork">
+                                    <ch5-image url="./app/project/assets/img/fork.png"></ch5-image>
                                 </div>
-
+                                <div>请先开始课程</div>
+                                <div>Please start the class first</div>
+                            </div>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px; margin-left: 20px;">
+                                <ch5-button sendEventOnClick="Projector1On" receiveStateSelected="isProjector1On"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机开</span></br><span>Projector On</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/confirm.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>关闭投影</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
+                                <ch5-button sendEventOnClick="Projector1Off" receiveStateSelected="isProjector1Off"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机关</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/error.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>取消</span><span>Cancel</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
+                            </div>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px; margin-left: 10px; margin-right: 10px;">
+                                <ch5-button sendEventOnClick="Projector2On" receiveStateSelected="isProjector2On"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机开</span></br><span>Projector On</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/confirm.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>关闭投影</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
+                                <ch5-button sendEventOnClick="Projector2Off" receiveStateSelected="isProjector2Off"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机关</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/error.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>取消</span><span>Cancel</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
+                            </div>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px; margin-right: 20px;">
+                                <ch5-button sendEventOnClick="Projector3On" receiveStateSelected="isProjector3On"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机开</span></br><span>Projector On</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/confirm.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>关闭投影</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
+                                <ch5-button sendEventOnClick="Projector3Off" receiveStateSelected="isProjector3Off"
+                                    customclass="video-button-height">
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>待机关</span></br><span>Projector Off</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                                        iconurl="./app/project/assets/img/error.png">
+                                        <ch5-button-label>
+                                            <template>
+                                                <span>取消</span><span>Cancel</span>
+                                            </template>
+                                        </ch5-button-label>
+                                    </ch5-button-mode>
+                                </ch5-button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </ch5-triggerview-child>
-        </ch5-triggerview>
+    </div>
+    </ch5-triggerview-child>
+    </ch5-triggerview>
     </div>
 
-    <ch5-modal-dialog receiveStateShowPulse="daily_select" dismissable okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
+    <ch5-modal-dialog receiveStateShowPulse="daily_select" dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+        okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
         margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
         margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog">
         <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
@@ -824,8 +918,8 @@
             <span>Please confirm whether to call this mode</span>
         </div>
     </ch5-modal-dialog>
-
-    <ch5-modal-dialog receiveStateShowPulse="teachA_select" dismissable okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
+    <ch5-modal-dialog receiveStateShowPulse="teachA_select" dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+        okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog">
         <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
@@ -833,7 +927,8 @@
             <span>Please confirm whether to call this mode</span>
         </div>
     </ch5-modal-dialog>
-    <ch5-modal-dialog receiveStateShowPulse="teachB_select" dismissable okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
+    <ch5-modal-dialog receiveStateShowPulse="teachB_select" dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+        okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog">
         <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
@@ -841,7 +936,8 @@
             <span>Please confirm whether to call this mode</span>
         </div>
     </ch5-modal-dialog>
-    <ch5-modal-dialog receiveStateShowPulse="online_select" dismissable okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
+    <ch5-modal-dialog receiveStateShowPulse="online_select" dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+        okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog">
         <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
@@ -849,7 +945,8 @@
             <span>Please confirm whether to call this mode</span>
         </div>
     </ch5-modal-dialog>
-    <ch5-modal-dialog receiveStateShowPulse="custom_select" dismissable okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
+    <ch5-modal-dialog receiveStateShowPulse="custom_select" dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+        okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-left: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
     margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog">
         <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
@@ -857,7 +954,6 @@
             <span>Please confirm whether to call this mode</span>
         </div>
     </ch5-modal-dialog>
-
 
     <!-- END::CHANGEAREA -->
 </section>
