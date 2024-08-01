@@ -23,7 +23,6 @@ const VideoControlModel = (() => {
                 </ch5-button>
             `
         });
-
         parent.appendChild(container);
     }
 

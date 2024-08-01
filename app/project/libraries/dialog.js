@@ -5,7 +5,7 @@ const DialogModel = (() => {
 
         parent.innerHTML += `
         <ch5-modal-dialog receiveStateShowPulse=${config.receiveStateShowPulse} dismissable okButtonLabel="确认" cancelButtonLabel="取消"
-            okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); 
+            okButtonStyle=" color:black;width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); 
             border: 1px solid black; margin-left: 8vw;margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" 
             cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
             margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog" sendeventonok=${config.sendeventonok}>

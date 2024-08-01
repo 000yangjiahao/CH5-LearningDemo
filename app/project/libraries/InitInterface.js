@@ -26,8 +26,8 @@ const InitInterface = (() => {
 
     const controlStateButton = [
         { sendEventOnClick: ["Projector1On", "Projector1Off"], receiveStateSelected: ["isProjector1On", "isProjector1Off"], margin: ["20px", "0px"], id: ["Projector1On", "Projector1Off"] },
-        { sendEventOnClick: ["Projector2On", "Projector2Off"], receiveStateSelected: ["isProjector2On", "isProjector2Off"], margin: ["10px", "10px"], id: ["Projector1On", "Projector1Off"] },
-        { sendEventOnClick: ["Projector3On", "Projector3Off"], receiveStateSelected: ["isProjector3On", "isProjector3Off"], margin: ["0px", "20px"], id: ["Projector1On", "Projector1Off"] },
+        { sendEventOnClick: ["Projector2On", "Projector2Off"], receiveStateSelected: ["isProjector2On", "isProjector2Off"], margin: ["10px", "10px"], id: ["Projector2On", "Projector2Off"] },
+        { sendEventOnClick: ["Projector3On", "Projector3Off"], receiveStateSelected: ["isProjector3On", "isProjector3Off"], margin: ["0px", "20px"], id: ["Projector3On", "Projector3Off"] },
     ]
 
     const lightingButtonConfig = [
