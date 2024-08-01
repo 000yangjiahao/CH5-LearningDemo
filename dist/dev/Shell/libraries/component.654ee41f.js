@@ -1212,6 +1212,460 @@ var webXPanelModule = (function () {
   };
 
 })();
+const AddLogic = (() => {
+
+    let homeButtons = [
+        { buttonName: 'dailyButton', selectedName: 'is_daily_selected', button: null },
+        { buttonName: 'teachAButton', selectedName: 'is_teachA_selected', button: null },
+        { buttonName: 'teachBButton', selectedName: 'is_teachB_selected', button: null },
+        { buttonName: 'onlineButton', selectedName: 'is_online_selected', button: null },
+        { buttonName: 'customButton', selectedName: 'is_custom_selected', button: null }
+    ];
+
+    let homeSliders = [
+        { sliderName: 'startSlider', sliderFun: 'start_confirm_show', slider: null },
+        { sliderName: 'endSlider', sliderFun: 'end_confirm_show', slider: null },
+    ]
+
+    
+    let logo
+    let fork
+
+    function init(){
+        initButton()
+        initLogo()
+        initFork()
+        initHomeSlider()
+    }
+
+    function initButton() {
+        homeButtons.forEach(btn => {
+            btn.button = document.getElementById(btn.buttonName);
+        });
+
+        homeButtons.map(btn => {
+            CrComLib.subscribeState('b', btn.selectedName, value => {
+                if (value) {
+                    btn.button.setMode(1);
+                } else {
+                    btn.button.setMode(0);
+                }
+            });
+        });
+    }
+
+    function initLogo() {
+        logo = document.getElementById('logo')
+        logo.addEventListener('click', () => {
+            templatePageModule.navigateTriggerViewByPageName('unlock')
+        })
+    }
+
+    function initFork() {
+        fork = document.getElementById('fork')
+        fork.addEventListener('click', () => {
+            CrComLib.publishEvent('b', 'is_end_selected', false)
+        })
+    }
+
+    function initHomeSlider() {
+
+        homeSliders.forEach(sld => {
+            sld.slider = document.getElementById(sld.sliderName);
+        });
+
+        homeSliders.map(sld => {
+            sld.slider.addEventListener('slideend', function (e) {
+                let end = e.detail.value[0]
+                console.log(end);
+                if (end == 0) {
+                    CrComLib.publishEvent('b', sld.sliderFun, false);
+                }
+            });
+        })
+    }
+
+    return {
+        init
+    }
+})();const AudioControlModel = (() => {
+
+    const mircoIconUrl = [
+        "./app/project/assets/img/micro.png",
+        "./app/project/assets/img/microG.png",
+        "./app/project/assets/img/microR.png",
+        "./app/project/assets/img/microY.png"
+    ]
+
+    function createSlider(id, config) {
+        const parent = document.getElementById(id);
+
+        const container = document.createElement('div');
+        container.innerHTML = 
+        ` 
+            <div><ch5-jointotext-numeric
+                    receiveStateValue=${config.receiveStateValue}></ch5-jointotext-numeric> db</div>
+            <ch5-slider sendEventOnChange=${config.sendEventOnChange} receiveStateValue=${config.receiveStateValue}
+                handleShape="circle" orientation="vertical" max="60">
+            </ch5-slider>
+            <div class="Audio-Text">
+                <div style="margin-top: 1vh;">${config.zh}</div>
+                <div style="margin-bottom: 1vh;">${config.en}</div>
+            </div>
+            <ch5-button customstyle="width:5vw; height:5vh" id=${config.en}>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconurl="./app/project/assets/img/micro.png"></ch5-button-mode>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconurl="./app/project/assets/img/microG.png"></ch5-button-mode>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconurl="./app/project/assets/img/microR.png"></ch5-button-mode>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconurl="./app/project/assets/img/microY.png"></ch5-button-mode>
+            </ch5-button>
+        `
+    parent.appendChild(container)
+    }
+
+    return {
+        createSlider
+    }
+})();const DialogModel = (() => {
+
+    function createModelDialog(id, config) {
+        const parent = document.getElementById(id);
+
+        parent.innerHTML += `
+        <ch5-modal-dialog receiveStateShowPulse=${config.receiveStateShowPulse} dismissable okButtonLabel="确认" cancelButtonLabel="取消"
+            okButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); 
+            border: 1px solid black; margin-left: 8vw;margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" 
+            cancelButtonStyle="width:8vw;height:5vh; background: linear-gradient(#F5F5F5 0%, #D2D2D2 49%, #C1C2C5 51%, #C0C1C4 100%); border: 1px solid black; margin-right: 8vw;
+            margin-top: 2vh;font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);" customclass="dialog" sendeventonok=${config.sendeventonok}>
+                <div style="font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);">
+                <span>确认是否调用此模式?</span><br>
+                <span>Please confirm whether to call this mode</span>
+                </div>
+        </ch5-modal-dialog>
+        `
+    }
+
+    function createStateDialog(id,config){
+        const parent = document.getElementById(id);
+
+        parent.innerHTML += `
+            <div class="confirm" style="font-size: clamp(0.7rem, 0.6rem + 1.5vw, 4rem);"
+                data-ch5-show=${config.show} data-ch5-noshow-type="remove">
+                <div style="margin-top: 3%;">${config.prompt}</div>
+                <div>Starting the class?</div>
+                <div style="display: flex; flex-direction: row;justify-content: center;margin-top: 5%;">
+                    <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                        <span>取消</span><br>
+                        <span>Cancel</span>
+                    </div>
+                    <ch5-slider value="50" min="0" max="100" customstyle="margin-top:1vh" id=${config.id}>
+                    </ch5-slider>
+                    <div style="width: 20%; font-size: clamp(0.7rem, 0.4rem + 1.05vw, 2rem);">
+                        <span>${config.zh}</span><br>
+                        <span>${config.en}</span>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+    return {
+        createModelDialog,
+        createStateDialog
+    }
+})();
+const InitInterface = (() => {
+
+
+    const videoControlButtons = ['VCB1', 'VCB2', 'VCB3']
+
+    const videoControlButtonsData = [
+        { chinese: "讲台桌插", english: "HDMI", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "左辅助", english: "Ass.L", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "右辅助", english: "Ass.R", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "无线投屏", english: "Wireless", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "黑屏", english: "V.Blank", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "送返显屏", english: "To LCD", sendEventOnClick: "", receiveStateSelected: "" },
+        { chinese: "自动跟踪", english: "Mic Trace", sendEventOnClick: "", receiveStateSelected: "" },
+    ];
+
+    const micorConfig = [
+        { zh: '桌面话筒', en: 'DNC', receiveStateValue: 'slider0.value', sendEventOnChange: 'slider0.change' },
+        { zh: '头戴', en: 'Head Mic', receiveStateValue: 'slider1.value', sendEventOnChange: 'slider1.change' },
+        { zh: '领夹', en: 'Clip', receiveStateValue: 'slider2.value', sendEventOnChange: 'slider2.change' },
+        { zh: '手持话筒1', en: 'Wireless1', receiveStateValue: 'slider3.value', sendEventOnChange: 'slider3.change' },
+        { zh: '手持话筒2', en: 'Wireless2', receiveStateValue: 'slider4.value', sendEventOnChange: 'slider4.change' },
+        { zh: '手持话筒3', en: 'Wireless3', receiveStateValue: 'slider5.value', sendEventOnChange: 'slider5.change' },
+        { zh: '手持话筒4', en: 'Wireless4', receiveStateValue: 'slider6.value', sendEventOnChange: 'slider6.change' },
+        { zh: '讲台桌插', en: 'HDMI', receiveStateValue: 'slider7.value', sendEventOnChange: 'slider7.change' },
+    ]
+
+    const controlStateButton = [
+        { sendEventOnClick: ["Projector1On", "Projector1Off"], receiveStateSelected: ["isProjector1On", "isProjector1Off"], margin: ["20px", "0px"], id: ["Projector1On", "Projector1Off"] },
+        { sendEventOnClick: ["Projector2On", "Projector2Off"], receiveStateSelected: ["isProjector2On", "isProjector2Off"], margin: ["10px", "10px"], id: ["Projector1On", "Projector1Off"] },
+        { sendEventOnClick: ["Projector3On", "Projector3Off"], receiveStateSelected: ["isProjector3On", "isProjector3Off"], margin: ["0px", "20px"], id: ["Projector1On", "Projector1Off"] },
+    ]
+
+    const lightingButtonConfig = [
+        { zh: '全开', en: 'All On', sendEventOnClick: '', receiveStateSelected: '' },
+        { zh: '全关', en: 'All Off', sendEventOnClick: '', receiveStateSelected: '' },
+        { zh: '投影模式', en: 'Present', sendEventOnClick: '', receiveStateSelected: '' },
+        { zh: '清洁模式', en: 'Maintain', sendEventOnClick: '', receiveStateSelected: '' },
+        { zh: '投影50%', en: 'Projector50%', sendEventOnClick: '', receiveStateSelected: '' },
+        { zh: '投影70%', en: 'Projector70%', sendEventOnClick: '', receiveStateSelected: '' },
+    ]
+
+    const allScreenButtonConfig = [
+        { zh: '显示器 开', en: 'All Screen On', sendEventOnClick: 'ScreenOn', receiveStateSelected: 'isScreenOn' },
+        { zh: '显示器 关', en: 'All Screen Off', sendEventOnClick: 'ScreenOff', receiveStateSelected: 'isScreenOff' },
+    ]
+
+    const modeButtonConfig1 = [
+        { zh: '日常模式', en: 'Default Mode', sendEventOnClick: 'daily_click', receiveStateSelected: 'is_daily_selected', receiveStateEnable: 'is_start_selected', iconUrl: ['./app/project/assets/img/dailyB.png', './app/project/assets/img/dailyW.png'], id: 'dailyButton' },
+        { zh: '教授模式 A', en: 'Professor Mode A', sendEventOnClick: 'teachA_click', receiveStateSelected: 'is_teachA_selected', receiveStateEnable: 'is_start_selected', iconUrl: ['./app/project/assets/img/teachB.png', './app/project/assets/img/teachW.png'], id: 'teachAButton' },
+        { zh: '教师模式 B', en: 'Professor Mode B', sendEventOnClick: 'teachB_click', receiveStateSelected: 'is_teachB_selected', receiveStateEnable: 'is_start_selected', iconUrl: ['./app/project/assets/img/teachB.png', './app/project/assets/img/teachW.png'], id: 'teachBButton' },
+    ]
+
+    const modeButtonConfig2 = [
+        { zh: '线上模式', en: 'Online Mode', sendEventOnClick: 'online_click', receiveStateSelected: 'is_online_selected', receiveStateEnable: 'is_start_selected', iconUrl: ['./app/project/assets/img/onlineB.png', './app/project/assets/img/onlineW.png'], id: 'onlineButton' },
+        { zh: '自定义模式', en: 'Custom Mode', sendEventOnClick: 'custom_click', receiveStateSelected: 'is_custom_selected', receiveStateEnable: 'is_start_selected', iconUrl: ['./app/project/assets/img/customB.png', './app/project/assets/img/customW.png'], id: 'customButton' },
+    ]
+
+    const modelDialogConfig = [
+        { receiveStateShowPulse: 'daily_click', sendeventonok: 'daily_select' },
+        { receiveStateShowPulse: 'teachA_click', sendeventonok: 'teachA_select' },
+        { receiveStateShowPulse: 'teachB_click', sendeventonok: 'teachB_select' },
+        { receiveStateShowPulse: 'online_click', sendeventonok: 'online_select' },
+        { receiveStateShowPulse: 'custom_click', sendeventonok: 'custom_select' },
+    ]
+
+    const stateDialogeModel = [
+        { prompt: "是否开始课程?", zh: '开始课程', en: 'Start the class', id: 'startSlider',show:'start_confirm_show' },
+        { prompt: "是否结束课程?", zh: '结束课程', en: 'End the class', id: 'endSlider',show:'end_confirm_show' }
+    ]
+
+    function init() {
+        initVideoControlButtons()
+        initControlSlider()
+        initControlStateButton()
+        initLightingButton()
+        initAllScreenButton()
+        initModeButton()
+        initModelDialog()
+        initStateDialog()
+    }
+
+    function initVideoControlButtons() {
+        videoControlButtons.map(id => {
+            VideoControlModel.createControlButtons(id, videoControlButtonsData)
+        })
+    }
+
+    function initControlSlider() {
+
+        ToolModel.createContainer("microContain", "slider", 8)
+        micorConfig.map((n, index) => {
+            AudioControlModel.createSlider("slider" + index, n)
+        })
+    }
+
+    function initControlStateButton() {
+        ToolModel.createContainer("controlStateButtonContain", "controlStateButton", 3)
+
+        controlStateButton.map((n, index) => {
+            VideoControlModel.createStateButtons("controlStateButton" + index, n)
+        })
+    }
+
+    function initLightingButton() {
+        ToolModel.createContainer("LightingControl", "lightingButton", 6)
+        lightingButtonConfig.map((n, index) => {
+            ToolModel.doubleLayerButton("lightingButton" + index, n)
+        })
+    }
+
+    function initAllScreenButton() {
+
+        ToolModel.createContainer("AllScreen", "screenButton", 2)
+        allScreenButtonConfig.map((n, index) => {
+            ToolModel.doubleLayerButton("screenButton" + index, n)
+        })
+
+    }
+
+    function initModeButton() {
+        modeButtonConfig1.map(n => {
+            ToolModel.doubleModeButton("modeButtonContainerA", n)
+        })
+        modeButtonConfig2.map(n => {
+            ToolModel.doubleModeButton("modeButtonContainerB", n)
+        })
+    }
+
+    function initModelDialog() {
+        modelDialogConfig.map(n => {
+            DialogModel.createModelDialog("home-page", n)
+        })
+    }
+
+    function initStateDialog(){
+        stateDialogeModel.map(n=>{
+            DialogModel.createStateDialog("viewcontent",n)
+        })
+    }
+
+    return {
+        init
+    }
+})();
+const ToolModel = (() => {
+
+    function createContainer(id, name, cont) {
+
+        let contain = document.getElementById(id)
+        for (let i = 0; i < cont; i++) {
+            let temp = document.createElement('div')
+            temp.id = name + i
+            contain.appendChild(temp)
+        }
+    }
+
+    function doubleLayerButton(id, config) {
+        const parent = document.getElementById(id);
+
+        // const container = document.createElement('div');
+        parent.innerHTML +=
+            ` 
+            <ch5-button sendEventOnClick=${config.sendEventOnClick} receiveStateSelected=${config.receiveStateSelected} customstyle="height:6.5vh;">
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                    <ch5-button-label>
+                        <template>
+                            <span>${config.zh}</span></br><span>${config.en}</span>
+                        </template>
+                    </ch5-button-label>
+                </ch5-button-mode>
+            </ch5-button>
+        `
+        // parent.appendChild(container)
+    }
+
+    function doubleModeButton(id, config) {
+        const parent = document.getElementById(id);
+        parent.innerHTML +=
+            ` 
+           <ch5-button iconposition="top" sendEventOnClick=${config.sendEventOnClick}
+                receiveStateSelected=${config.receiveStateSelected} receiveStateEnable=${config.receiveStateEnable}
+                id=${config.id}>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconUrl=${config.iconUrl[0]}>
+                    <ch5-button-label>
+                        <template>
+                            <span>${config.zh}</span></br><span>${config.en}</span>
+                        </template>
+                    </ch5-button-label>
+                </ch5-button-mode>
+                <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                    iconUrl=${config.iconUrl[1]}>
+                    <ch5-button-label>
+                        <template>
+                            <span>${config.zh}</span></br><span>${config.en}</span>
+                        </template>
+                    </ch5-button-label>
+                </ch5-button-mode>
+            </ch5-button>
+        `
+    }
+    return {
+        createContainer,
+        doubleLayerButton,
+        doubleModeButton
+    }
+})();const VideoControlModel = (() => {
+
+    function createControlButtons(id, controlButtonsData) {
+
+        const parent = document.getElementById(id);
+        const container = document.createElement('div');
+        container.style.display = 'grid';
+        container.style.gridTemplateColumns = 'repeat(1, 1fr)';
+        container.style.gridTemplateRows = 'repeat(7, 1fr)';
+        container.style.gap = '0px';
+
+        controlButtonsData.forEach(buttonData => {
+            container.innerHTML+=`
+                <ch5-button sendEventOnClick=${buttonData.sendEventOnClick} receiveStateSelected=${buttonData.receiveStateSelected}
+                customclass="video-button-height">
+                    <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                        <ch5-button-label>
+                            <template>
+                            <span>${buttonData.chinese}</span></br><span>${buttonData.english}</span>
+                            </template>
+                        </ch5-button-label>
+                    </ch5-button-mode>
+                </ch5-button>
+            `
+        });
+
+        parent.appendChild(container);
+    }
+
+
+    function createStateButtons(id, stateButtonsData) {
+
+        const parent = document.getElementById(id);
+        // const container = document.createElement('div');
+        parent.innerHTML +=
+            `
+                <div
+                    style="display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0px; margin-left: ${stateButtonsData.margin[0]}; margin-right: ${stateButtonsData.margin[1]};">
+                    <ch5-button sendEventOnClick=${stateButtonsData.sendEventOnClick[0]} receiveStateSelected=${stateButtonsData.receiveStateSelected[0]}
+                        customclass="video-button-height" id=${stateButtonsData.id[0]}>
+                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                            <ch5-button-label>
+                                <template>
+                                    <span>待机开</span></br><span>Projector On</span>
+                                </template>
+                            </ch5-button-label>
+                        </ch5-button-mode>
+                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                            iconurl="./app/project/assets/img/confirm.png">
+                            <ch5-button-label>
+                                <template>
+                                    <span>关闭投影</span></br><span>Projector Off</span>
+                                </template>
+                            </ch5-button-label>
+                        </ch5-button-mode>
+                    </ch5-button>
+                    <ch5-button sendEventOnClick=${stateButtonsData.sendEventOnClick[1]} receiveStateSelected=${stateButtonsData.receiveStateSelected[1]}
+                        customclass="video-button-height" id=${stateButtonsData.id[1]}>
+                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle">
+                            <ch5-button-label>
+                                <template>
+                                    <span>待机关</span></br><span>Projector Off</span>
+                                </template>
+                            </ch5-button-label>
+                        </ch5-button-mode>
+                        <ch5-button-mode hAlignLabel="center" vAlignLabel="middle"
+                            iconurl="./app/project/assets/img/error.png">
+                            <ch5-button-label>
+                                <template>
+                                    <span>取消</span><span>Cancel</span>
+                                </template>
+                            </ch5-button-label>
+                        </ch5-button-mode>
+                    </ch5-button>
+                </div>
+            `
+        // parent.appendChild(container);
+    }
+    return {
+        createControlButtons,
+        createStateButtons
+    }
+
+})();
 /*jslint es6 */
 /*global CrComLib, webXPanelModule, hardButtonsModule, templateVersionInfoModule, projectConfigModule, featureModule, templateAppLoaderModule, translateModule, serviceModule, utilsModule, navigationModule */
 
@@ -2490,21 +2944,6 @@ const templateVersionInfoModule = (() => {
 const homeModule = (() => {
     'use strict';
 
-    let homeButtons = [
-        { buttonName: 'dailyButton', selectedName: 'is_daily_selected', button: null },
-        { buttonName: 'teachAButton', selectedName: 'is_teachA_selected', button: null },
-        { buttonName: 'teachBButton', selectedName: 'is_teachB_selected', button: null },
-        { buttonName: 'onlineButton', selectedName: 'is_online_selected', button: null },
-        { buttonName: 'customButton', selectedName: 'is_custom_selected', button: null }
-    ];
-
-    let homeSliders = [
-        { sliderName: 'startSlider', sliderFun: 'start_confirm_show', slider: null },
-        { sliderName: 'endSlider', sliderFun: 'end_confirm_show', slider: null },
-    ]
-
-    let logo
-    let fork
     // BEGIN::CHANGEAREA - your javascript for page module code goes here         
     /**
      * Initialize Method
@@ -2521,67 +2960,14 @@ const homeModule = (() => {
         if (value['loaded']) {
             onInit();
 
-            initElement()
-
+            InitInterface.init()
+            AddLogic.init()
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:home-import-page', loadedSubId);
                 loadedSubId = '';
             });
         }
     });
-
-    function initElement() {
-        initButton()
-        initLogo()
-        initFork()
-        initSlider()
-    }
-
-    function initButton() {
-        homeButtons.forEach(btn => {
-            btn.button = document.getElementById(btn.buttonName);
-        });
-
-        homeButtons.map(btn => {
-            CrComLib.subscribeState('b', btn.selectedName, value => {
-                if (value) {
-                    btn.button.setMode(1);
-                } else {
-                    btn.button.setMode(0);
-                }
-            });
-        });
-    }
-    function initLogo() {
-        logo = document.getElementById('logo')
-        logo.addEventListener('click', () => {
-            templatePageModule.navigateTriggerViewByPageName('unlock')
-        })
-    }
-
-    function initFork() {
-        fork = document.getElementById('fork')
-        fork.addEventListener('click', () => {
-            CrComLib.publishEvent('b', 'is_end_selected', false)
-        })
-    }
-
-    function initSlider() {
-
-        homeSliders.forEach(sld => {
-            sld.slider = document.getElementById(sld.sliderName);
-        });
-
-        homeSliders.map(sld => {
-            sld.slider.addEventListener('slideend', function (e) {
-                let end = e.detail.value[0]
-                console.log(end);
-                if (end == 0) {
-                    CrComLib.publishEvent('b', sld.sliderFun, false);
-                }
-            });
-        })
-    }
 
     /**
      * All public method and properties are exported here

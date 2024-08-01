@@ -193,9 +193,6 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
   width: 20%;
   justify-content: center;
 }
-.projectorButton .cb-lbl.ch5-button--label {
-  width: 75%;
-}
 
 @media screen and (max-width: 1280px) and (max-height: 800px) {
   .startClassConfirm {
@@ -203,6 +200,12 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
     height: 15vh;
     bottom: 0.5vh;
     right: 24px;
+  }
+  .projectorButton .cb-lbl.ch5-button--label {
+    width: 80%;
+  }
+  .projectorButton span.cb-lbl.ch5-button--label {
+    font-size: 15px;
   }
 }
 @media screen and (min-width: 1920px) and (min-height: 1200px) {
@@ -212,6 +215,29 @@ ch5-button .ch5-button i.cb-icon.cx-button-icon-pos-top.ch5-button--img {
     bottom: 3vh;
     right: 24px;
   }
+  .projectorButton .cb-lbl.ch5-button--label {
+    width: 75%;
+  }
+  .projectorButton span.cb-lbl.ch5-button--label {
+    font-size: 24px;
+  }
+}
+.controlButton ch5-button {
+  width: 100%;
+}
+
+#modeButtonContainer ch5-button {
+  width: 20%;
+  margin: 4% 2% 2% 2%;
+}
+#modeButtonContainer .ch5-button {
+  height: 15vh;
+}
+#modeButtonContainer div {
+  text-align: center;
+}
+#modeButtonContainer span.cb-lbl.ch5-button--label {
+  font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
 }
 /*!******************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/project/components/pages/unlock/unlock.scss ***!

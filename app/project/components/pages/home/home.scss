@@ -221,7 +221,8 @@ ch5-button {
     justify-content: center;
     color: white;
 }
-.projectorButton{
+
+.projectorButton {
     i.cb-icon.cx-button-icon-pos-first.ch5-button--img {
         height: 3.5vh;
         width: 20%;
@@ -229,6 +230,7 @@ ch5-button {
     }
 
 }
+
 @media screen and (max-width: 1280px) and (max-height: 800px) {
     .startClassConfirm {
         width: 38%;
@@ -236,10 +238,12 @@ ch5-button {
         bottom: 0.5vh;
         right: 24px;
     }
-    .projectorButton{
-        .cb-lbl.ch5-button--label{
+
+    .projectorButton {
+        .cb-lbl.ch5-button--label {
             width: 80%;
         }
+
         span.cb-lbl.ch5-button--label {
             font-size: 15px
         }
@@ -253,12 +257,39 @@ ch5-button {
         bottom: 3vh;
         right: 24px;
     }
-    .projectorButton{
-        .cb-lbl.ch5-button--label{
+
+    .projectorButton {
+        .cb-lbl.ch5-button--label {
             width: 75%;
         }
+
         span.cb-lbl.ch5-button--label {
             font-size: 24px
         }
+    }
+}
+
+.controlButton{
+    ch5-button{
+        width: 100%;
+    }
+}
+
+#modeButtonContainer{
+    ch5-button {
+        width: 20%;
+        margin: 4% 2% 2% 2%;
+    }
+
+    .ch5-button {
+        height: 15vh;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    span.cb-lbl.ch5-button--label {
+        font-size: clamp(0.7rem, 0.489rem + 1.05vw, 2rem);
     }
 }
